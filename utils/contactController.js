@@ -85,3 +85,20 @@ exports.update = (req, res) => {
         }
     })
 }
+
+exports.delete = (req, res) =>{
+    Contact.remove({_id:req.params.contact_id},(err, result)=>{
+        if(!err){
+            res.json({
+                status:"success",
+                message:"contact is successfully deleted "
+            })
+        }else{
+            res.json({
+                status:"failed",
+                message:err
+            })
+        }
+    })
+
+}

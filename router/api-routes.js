@@ -14,6 +14,9 @@ router.route('/contacts').get(contactController.index).post(contactController.ne
 
 router.route('/contacts/:contact_id')
     .get(contactController.view)
+    .patch(contactController.update)
+    .put(contactController.update)
+    .delete(contactController.delete)
 
 // router.get('/contacts/:contact_id', contactController.view)
 
