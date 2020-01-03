@@ -15,7 +15,7 @@ app.use(express.static(path.join(__dirname,'public')))
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({extended:false}))
 
-app.use('/', apiRouter)
+app.use('/api', apiRouter)
 
 var password = process.env.PASSWORD
 mongoose.connect(`mongodb+srv://root:${password}@jaewook-0sogy.mongodb.net/test?retryWrites=true&w=majority`,{ useNewUrlParser: true , useUnifiedTopology: true })
@@ -23,14 +23,14 @@ mongoose.connect(`mongodb+srv://root:${password}@jaewook-0sogy.mongodb.net/test?
 
 var db = mongoose.connection
 
-if (!db) {
-    console.log('err')
-}else{
-    console.log('con')
-}
-
 var port = process.env.PORT || 3000
 
 app.listen(port, ()=>{
     console.log(`Server is starting at http://locallhost:${port}`)
 })
+
+if (!db) {
+    console.log('err')
+}else{
+    console.log('con')
+}

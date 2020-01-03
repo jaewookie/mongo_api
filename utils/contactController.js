@@ -40,3 +40,19 @@ exports.new = (req, res) =>{
         }
     })
 }
+
+exports.view =(req, res)=>{
+    Contact.findById(req.params.contact_id, (err, result)=>{
+        if(!err){
+            res.json({
+                message: "Contact",
+                data:result
+            })
+        }else{
+            res.json({
+                message: "failed",
+                data:err
+            })
+        }
+    })
+}
