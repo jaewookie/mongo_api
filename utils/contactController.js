@@ -1,4 +1,4 @@
-var Contact = require('./contactModel')
+var Contact = require('./contactModel.js')
 
 exports.index = (req, res) =>{
     Contact.get((err, contacts)=>{
