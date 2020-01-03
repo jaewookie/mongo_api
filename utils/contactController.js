@@ -56,3 +56,32 @@ exports.view =(req, res)=>{
         }
     })
 }
+
+exports.update = (req, res) => {
+    Contact.findById(req.params.contact_id,(err, result)=>{
+        if(!err){
+            result.name=req.body.name ? req.body.name : result.name
+            result.email=req.body.email ? req.body.email : result.email
+            result.gender=req.body.gender
+            result.phone=req.body.phone
+            result.save((err)=>{
+                if(err){
+                    res.json({
+                        status:"error",
+                        message:err
+                    })
+                }else{
+                    res.json({
+                        message:"Contact Modified",
+                        data:result
+                    })
+                }
+            })
+        }else{
+            res.json({
+                message:"error",
+                data:err
+            })
+        }
+    })
+}

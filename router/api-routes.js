@@ -12,4 +12,9 @@ router.get('/', (req, res)=>{
 
 router.route('/contacts').get(contactController.index).post(contactController.new)
 
+router.route('/contacts/:contact_id')
+    .get(contactController.view)
+
+// router.get('/contacts/:contact_id', contactController.view)
+
 module.exports=router
