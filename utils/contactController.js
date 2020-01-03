@@ -40,7 +40,7 @@ exports.new = (req, res) =>{
         }
     })
 }
-
+// 특정id 정보 조회
 exports.view =(req, res)=>{
     Contact.findById(req.params.contact_id, (err, result)=>{
         if(!err){
@@ -57,6 +57,7 @@ exports.view =(req, res)=>{
     })
 }
 
+// 특정id 정보 수정
 exports.update = (req, res) => {
     Contact.findById(req.params.contact_id,(err, result)=>{
         if(!err){
@@ -86,6 +87,7 @@ exports.update = (req, res) => {
     })
 }
 
+// 특정id 정보 삭제
 exports.delete = (req, res) =>{
     Contact.remove({_id:req.params.contact_id},(err, result)=>{
         if(!err){
